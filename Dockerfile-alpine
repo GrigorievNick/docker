@@ -28,6 +28,8 @@ VOLUME /var/jenkins_home
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
 COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
+#Enable Jenkins and Create Admin user
+COPY enableJenkinsAndCreateAdminUser.groovy /usr/share/jenkins/ref/init.groovy.d/enableJenkinsAndCreateAdminUser.groovy
 
 # jenkins version being bundled in this docker image
 ARG JENKINS_VERSION
