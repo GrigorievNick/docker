@@ -9,6 +9,7 @@ steps:
   args:
   - 'beta'
   - 'compute'
+  - 'instances'
   - 'create-with-container'
   - '--project'
   - '$PROJECT_ID'
