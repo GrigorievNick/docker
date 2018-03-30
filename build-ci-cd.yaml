@@ -18,4 +18,6 @@ steps:
   - 'gcr.io/$PROJECT_ID/jenkins:$REVISION_ID'
   - '--tags'
   - 'jenkins-network'
+  - '--zone'
+  - 'europe-west1-b'
 logsBucket: 'gs://jenkins_build_logs'
