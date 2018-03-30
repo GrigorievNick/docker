@@ -1,0 +1,7 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/GrigorievNick/docker']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/jenkins:$REVISION_ID", "-f", "Dockerfile-alpine", "."]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "gcr.io/$PROJECT_ID/jenkins:$REVISION_ID"]
