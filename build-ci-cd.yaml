@@ -5,8 +5,26 @@ steps:
   args: ["build", "-t", "gcr.io/$PROJECT_ID/jenkins:$REVISION_ID", "-f", "Dockerfile-alpine", "."]
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "gcr.io/$PROJECT_ID/jenkins:$REVISION_ID"]
-# Simple unit test: invoke the new gcloud container to confirm that it was
-# built correctly.
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['info']
-logsBucket: 'gs://jenkins_build_logs'  
+  args:
+  - 'beta'
+  - 'compute'
+  - 'instance-templates'
+  - 'create-with-container'
+  - 'jenkins-vm'
+  - '--container-image'
+  - 'gcr.io/$PROJECT_ID/jenkins:$REVISION_ID'
+  - '--tags'
+  - 'jenkins'
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'compute'
+  - 'firewall-rules'
+  - 'create'
+  - 'allow-http'
+  - '--allow'
+  - 'tcp:80'
+  - '--targets-tags'
+  - 'jenkins'
+
+logsBucket: 'gs://jenkins_build_logs'
