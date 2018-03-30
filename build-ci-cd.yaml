@@ -9,9 +9,9 @@ steps:
   args:
   - 'beta'
   - 'compute'
+  - 'create-with-container'
   - '--project'
   - '$PROJECT_ID'
-  - 'create-with-container'
   - 'jenkins-vm'
   - '--container-image'
   - 'gcr.io/$PROJECT_ID/jenkins:$REVISION_ID'
