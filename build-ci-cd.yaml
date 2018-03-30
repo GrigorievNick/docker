@@ -7,7 +7,7 @@ steps:
   args: ["push", "gcr.io/$PROJECT_ID/jenkins:$REVISION_ID"]
 # Simple unit test: invoke the new gcloud container to confirm that it was
 # built correctly.
-- name: 'gcr.io/$PROJECT_ID/gcloud'
+- name: 'gcr.io/cloud-builders/gcloud'
   args: ['info']
 options:
  logStreamingOption: STREAM_ON
