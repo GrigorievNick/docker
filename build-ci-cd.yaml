@@ -9,6 +9,6 @@ steps:
 # built correctly.
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['info']
-logsBucket: jenkins_build_logs  
+logsBucket: 'gs://jenkins_build_logs'  
 options:
  logStreamingOption: STREAM_ON
