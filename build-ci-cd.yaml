@@ -10,5 +10,3 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['info']
 logsBucket: 'gs://jenkins_build_logs'  
-options:
- logStreamingOption: STREAM_ON
